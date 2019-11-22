@@ -85,10 +85,30 @@
       static get is() { return 'dish-detail-component'; }
       static get properties() {
         return {
-          prop1: {
+          image:{
             type: String,
-            value: 'dish-detail-component'
-          }
+            value: ""
+          },
+          name:{
+            type: String,
+            value: ""
+          },
+          energyValue:{
+            type: Number,
+            value: 0
+          },
+          rate:{
+            type: Number,
+            value: 0
+          },
+          price:{
+            type: Number,
+            value: 0
+          },
+          description:{
+            type: String,
+            value: ""
+          },
         };
       }
     }
