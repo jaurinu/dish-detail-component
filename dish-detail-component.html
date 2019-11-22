@@ -1,0 +1,98 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-styles/color.html">
+<link rel="import" href="../paper-styles/typography.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<link rel="import" href="../rating-component/rating-component.html">
+
+<dom-module id="dish-detail-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --dish-form-component-cyan-color: #0097a7;
+        --dish-form-component-red-color: #ff6f00;
+        --dish-form-component-grey-color: #757575;
+        --dish-form-component-white-color: #ffffff;
+      }
+      .cyan {
+        background-color: var(--dish-form-component-cyan-color);
+        color: var(--dish-form-component-white-color);
+      }
+      .red {
+        background-color: var(--dish-form-component-red-color);
+        color: var(--dish-form-component-white-color);
+      }
+      .grey { color: var(--dish-form-component-grey-color); }
+      paper-card {
+      max-width: 500px;
+      }
+      .crop{
+        width: 300px;
+        overflow:hidden;
+        border:1px solid #ccc;
+      }
+      .crop img{
+        display: block;
+        width: 100%
+      }
+      .card-header { @apply --paper-font-headline; }
+      .calories-right {
+      float: right;
+      font-size: 15px;
+      vertical-align: middle;
+      }
+      .justified{
+        text-align: center;
+      }
+      iron-icon.star:last-of-type { 
+        color: var(--dish-form-component-grey-color); 
+      }
+      </style>
+      <paper-card class="crop" image="/assets/image_mockup.jpg">
+        <div class="card-content">
+          <div class="card-header">Nombre del platillo
+            <div class="calories-right grey">
+              <iron-icon slot="prefix" icon="favorite"></iron-icon>
+              <span>cal</span>
+            </div>
+          </div>
+          <rating-component></rating-component>
+          <p>$ Precio mxn</p>
+          <p class="grey">Descripción</p>
+        </div>
+        <div class="card-actions grey">
+          <div class="justified">
+            <paper-button raised class="cyan" id="modify" on-click="editDish">Modificar</paper-button>
+            <paper-button raised class="red" id="remove" on-click="removeDish">Eliminar</paper-button>
+          </div>
+        </div>
+      </paper-card>
+    </template>
+
+  <script>
+    /**
+     * `dish-detail-component`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class DishDetailComponent extends Polymer.Element {
+      static get is() { return 'dish-detail-component'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'dish-detail-component'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DishDetailComponent.is, DishDetailComponent);
+  </script>
+</dom-module>
